@@ -1,81 +1,60 @@
 # Farm2Table
 
-> Simple, static web frontend for a farm-to-consumer ordering flow:
-> landing page, farmer pages, cart/checkout flow and farmer dashboard.
+> Static farm-to-consumer ordering interface prototype.
 
-## Quick summary
-Farm2Table is a small static website demonstrating a minimal farm-to-consumer ordering front-end. It includes sample pages for shoppers and farmers, a basic cart & checkout flow, and a tiny farmer dashboard. This project is intended as a lightweight demo / learning project or starting point for a small marketplace prototype.
+## Overview
+
+Farm2Table demonstrates a lightweight shopping flow with farmer listings, products, cart state, a mock checkout flow, delivery status, and a farmer dashboard.
+
+The current implementation is intentionally client-side only. Product and farmer data are sample data, and checkout/order state is stored in browser LocalStorage. There is no production backend or external service integration.
 
 ## Features
-- Landing / index page
-- Farmer listing and farmer dashboard pages
-- Simple cart and payment flow (static mock)
-- Lightweight client-side logic in `app.js`
-- Styling with plain CSS (`styles.css`)
-- Sample images in `images/`
+
+- Product and farmer listings
+- Client-side cart management
+- Mock checkout and order state
+- Delivery-status prototype
+- Farmer login/dashboard pages
+- Responsive HTML/CSS/JavaScript interface
 
 ## Tech stack
-- HTML, CSS, JavaScript (client-side only — no backend included)
-- GPL-3.0 license
 
-## Files of interest
-- `index.html` — Homepage / listing
-- `farmers.html` — Farmers listing
-- `farmerLogin.html` / `farmerdashboard.html` — Farmer flows
-- `cart.html`, `payment.html`, `delivery.html` — Cart & checkout pages
-- `app.js` — Client-side logic / interactions
-- `styles.css` — Styling
-- `images/` — Assets used by the pages
+- HTML5
+- CSS3
+- JavaScript
+- Browser LocalStorage
 
-## Local preview
-This is a static site — open `index.html` in your browser, or serve it with a simple HTTP server:
+## Run locally
 
-### With Python 3 (recommended)
+Serve the repository with a small static server:
+
 ```bash
-# from the repo root
-python3 -m http.server 8000
-# then open http://localhost:8000 in your browser
+python -m http.server 8000
 ```
 
-### With Node (serve)
+Then open `http://localhost:8000/`.
+
+## Validation
+
+A lightweight Node-based consistency check verifies that product/farmer identifiers are unique:
+
 ```bash
-npm install -g serve
-serve .
-# open the provided localhost URL
+node tests/validate_data.mjs
 ```
 
-## Contributing
+## Data and limitations
 
-Contributions, bug reports and improvements are welcome.
+This repository is a prototype for learning and UI demonstration. Prices, names, images, delivery states, and order IDs are sample data.
 
-Suggested workflow:
+## Roadmap
 
-1. Fork the repository.
-    
-2. Create a feature branch: `git checkout -b feat/my-change`.
-    
-3. Commit changes and push.
-    
-4. Open a pull request describing the change.
-
-Please keep pull requests small and focused (UI, accessibility, bugfixes, modular JS, or converting to a backend-based demo are good candidates).
-
-## Roadmap / ideas
-
-- Replace static mock checkout with a simple backend (Node/Express or Firebase)
-    
-- Add user authentication and per-farmer product management
-    
-- Improve accessibility & responsiveness
-    
-- Add tests and CI (linting for JS/CSS, HTML validation)
-    
-- Optimize images and provide responsive image sets
+- Modular client-side modules
+- Accessibility and responsive-design testing
+- Backend API
+- Authentication
+- Persistent server-side orders
+- Real inventory and delivery integration
 
 ## License
 
-This project is licensed under the **GPL-3.0** license. See the `LICENSE` file for details.
-
-## Project status
-
-This is intentionally a static prototype. Product, farmer, cart, order, payment, and delivery data are simulated in the browser; there is no production backend or real payment processing.
+GPL-3.0
