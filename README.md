@@ -76,6 +76,6 @@ Please keep pull requests small and focused (UI, accessibility, bugfixes, modula
 
 This project is licensed under the **GPL-3.0** license. See the `LICENSE` file for details.
 
-## Contact / credits
+## Project status
 
-Created by the Farm2Table project maintainers.
+This is intentionally a static prototype. Product, farmer, cart, order, payment, and delivery data are simulated in the browser; there is no production backend or real payment processing.
