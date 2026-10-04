@@ -4,47 +4,55 @@
 
 ## Overview
 
-Farm2Table demonstrates a lightweight shopping flow with farmer listings, products, cart state, a mock checkout flow, delivery status, and a farmer dashboard.
+Farm2Table demonstrates a lightweight shopping flow with farmer listings, product browsing, cart state, mock checkout, delivery-status UI, and a farmer dashboard.
 
-The current implementation is intentionally client-side only. Product and farmer data are sample data, and checkout/order state is stored in browser LocalStorage. There is no production backend or external service integration.
+The implementation is intentionally client-side. Product and farmer records are sample data, cart/order state is stored in browser LocalStorage, and there is no production backend, payment service, or server-side inventory.
 
 ## Features
 
 - Product and farmer listings
 - Client-side cart management
-- Mock checkout and order state
-- Delivery-status prototype
+- Quantity controls
+- Mock checkout and order creation
+- Order status and cancellation prototype
+- Delivery-status UI
 - Farmer login/dashboard pages
 - Responsive HTML/CSS/JavaScript interface
+- Order IDs generated with `crypto.randomUUID()` when available, with a timestamp fallback
 
-## Tech stack
+## Data validation
 
-- HTML5
-- CSS3
-- JavaScript
-- Browser LocalStorage
-
-## Run locally
-
-Serve the repository with a small static server:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000/`.
-
-## Validation
-
-A lightweight Node-based consistency check verifies that product/farmer identifiers are unique:
+A small Node.js consistency check verifies that product and farmer IDs are unique:
 
 ```bash
 node tests/validate_data.mjs
 ```
 
+The product catalogue currently uses unique IDs, including separate IDs for Apples and Watermelon.
+
+## Run locally
+
+Serve the repository with a simple static server:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/
+```
+
 ## Data and limitations
 
-This repository is a prototype for learning and UI demonstration. Prices, names, images, delivery states, and order IDs are sample data.
+Names, prices, images, ratings, delivery states, and order information are sample/prototype data.
+
+Checkout does not process real payments, and order state is stored only in the browser. The cancellation message is also part of the prototype flow rather than a real refund service.
+
+## Development
+
+GitHub Actions runs the lightweight data-validation check.
 
 ## Roadmap
 
@@ -52,9 +60,9 @@ This repository is a prototype for learning and UI demonstration. Prices, names,
 - Accessibility and responsive-design testing
 - Backend API
 - Authentication
-- Persistent server-side orders
-- Real inventory and delivery integration
+- Server-side orders and inventory
+- Real delivery/payment integration
 
 ## License
 
-GPL-3.0
+See [LICENSE](LICENSE).
