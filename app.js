@@ -14,7 +14,7 @@ const products = [
   { id: "p6", title: "Bananas (12pcs)", price: 60, farmer: "Ajay Sharma", category: "fruit", image:"images/bananas.jpg"},
   { id: "p7", title: "Grapes (250gm)", price: 100, farmer: "Santosh Ram", category: "fruit", image:"images/grapes.jpg"},
   { id: "p8", title: "Apples (5pcs)", price:100, farmer : "Satvik", category: "fruit", image:"images/apples.jpg" },
-  { id: "p8", title: "Watermelon (1pc)", price: 80, farmer : "Amal", category: "fruit", image:"images/watermelon.jpg" },
+  { id: "p19", title: "Watermelon (1pc)", price: 80, farmer : "Amal", category: "fruit", image:"images/watermelon.jpg" },
   { id: "p9", title: "Fresh Carrots (250gm)", price: 30, farmer: "Ashok", category: "vegetable", image:"images/carrots.jpg"},
   { id: "p10", title: "beetroot (250gm)", price: 40, farmer: "Ravi Kumar", category: "vegetable", image:"images/beetroot.jpg"},
   { id: "p11", title: "Fresh potatoes (250gm)", price: 35, farmer: "Kiran", category: "vegetable", image: "images/potatoes.jpg"},
@@ -275,7 +275,9 @@ function setupCheckout() {
 
     let orders = getOrders();
     orders.push({
-      id: "ORD" + Math.floor(Math.random() * 10000),
+      id: typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : "ORD-" + Date.now(),
       items: cart,
       status: "Pending"
     });
